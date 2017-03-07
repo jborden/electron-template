@@ -16,7 +16,7 @@
 
   :min-lein-version "2.5.3"
 
-  :cljsbuild {:builds {:app {:source-paths ["src/cljs"]
+  :cljsbuild {:builds {:app {:source-paths ["src/cljs" "test/cljs"]
                              :compiler {:output-to     "app/js/p/app.js"
                                         :output-dir    "app/js/p/out"
                                         :asset-path    "js/p/out"
@@ -35,12 +35,13 @@
                                               :figwheel {:on-jsload "{{project-ns}}.core/mount-root"}}}}
                    :source-paths ["env/dev/cljs"]
 
-                   :dependencies [[figwheel-sidecar "0.5.0-6"]]
+                   :dependencies [[com.cemerick/piggieback "0.2.1"]
+                                  [figwheel-sidecar "0.5.4"]]
 
                    :plugins [[lein-ancient "0.6.8"]
                              [lein-kibit "0.1.2"]
                              [lein-cljfmt "0.4.1"]
-                             [lein-figwheel "0.5.0-6"]]}
+                             [lein-figwheel "0.5.4"]]}
 
              :production {:cljsbuild {:builds {:app {:compiler {:optimizations :advanced
                                                                 :main          "{{project-ns}}.prod"

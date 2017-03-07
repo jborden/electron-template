@@ -31,6 +31,7 @@
              ["env/dev/cljs/{{sanitized}}/dev.cljs" (render "env/dev/cljs/dev.cljs" data)]
              ["env/prod/cljs/{{sanitized}}/prod.cljs" (render "env/prod/cljs/prod.cljs" data)]
              ["externs/misc.js" (render "externs/misc.js" data)]
+             ["test/cljs/{{sanitized}}/core.cljs" (render "test/cljs/core.cljs" data)]
 
              ["app/app.js" (render "app/app.js" data)]
              ["app/example.config.json" (render "app/example.config.json" data)]
