@@ -84,7 +84,7 @@ grunt.registerTask('ensure-config-exists', function() {
 });
 
 grunt.registerTask('run-app-bower', function() {
-  exec("bower install");
+  exec("node_modules/.bin/bower install");
 });
 
 grunt.registerTask('cljsbuild-prod', function() {

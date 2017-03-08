@@ -15,11 +15,14 @@ else
   npm install --no-optional
 fi
 
-
 echo; echo "Installing grunt and bower..."
 
-npm install -g grunt-cli bower
+npm install grunt-cli bower --save-dev
 
-grunt setup
+node_modules/.bin/grunt setup
+# odd issue that this must be run twice in order to complete the sub-tasks
+# 'ensure-config-exists' and 'run-app-bower' in the 'setup' task. It is needed
+# in order to install Twitter bootstrap in the app/resources dir
+node_modules/.bin/grunt setup
 
 echo; echo "Setup complete."

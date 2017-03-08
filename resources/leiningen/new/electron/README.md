@@ -4,13 +4,13 @@
 ## Requirements
 
 * JDK 1.7+
-* Leiningen 2.5.3
-* node.js 5.1.1 [This is done to match the verion of node.js being used in Electron v0.37.2]
+* Leiningen 2.7.1
+* node.js 5.1.1 [This is done to match the verion of node.js being used in Electron v1.6.0]
 * [NSIS](http://nsis.sourceforge.net/)
 
 On Mac/Linux, installing node.js using [Node Version Manager](https://github.com/creationix/nvm) is recommended.
 
-This project uses Electron v0.35.2. Please check [Electron's GitHub page](https://github.com/atom/electron) for the latest version. The version is specified in `Gruntfile.js` under the `Grunt Config` section.
+This project uses Electron v1.6.0. Please check [Electron's GitHub page](https://github.com/atom/electron) for the latest version. The version is specified in `Gruntfile.js` under the `Grunt Config` section.
 
 ## Setup
 
@@ -47,14 +47,19 @@ This will give better readline support.
 
 More about [figwheel](https://github.com/bhauman/lein-figwheel) here.
 
-
 In another terminal window, launch the electron app:
 
 ```
-grunt launch
+node_modules/.bin/grunt launch
 ```
 
 You can edit the `src/cljs/{{sanitized}}/core.cljs` file and the changes should show up in the electron app without the need to re-launch.
+
+To reload the page in the chrome console type:
+
+```javascript
+location.reload();
+```
 
 ## Using nREPL with figwheel
 
@@ -145,3 +150,25 @@ To run a command, type `lein <command>` in the terminal.
 |---------------|-------------------------------------------------------------------------------------------|
 | cljfmt fix    | Auto-formats all clj/cljs code. See [cljfmt](https://github.com/weavejester/cljfmt)       |
 | kibit         | Statically analyse clj/cljs and give suggestions                                          |
+
+## Testing
+
+Currently, tests must be done manually in the repl.
+
+```clojure
+=> (in-ns '{{project-ns}}.test.core)
+nil
+{{project-ns}}.test.core=> (run-tests)
+
+Testing {{project-ns}}.test.core
+
+FAIL in (a-test) (cljs/test.js:418:14)
+FIXME, I fail.
+expected: (= 0 1)
+  actual: (not (= 0 1))
+
+Ran 1 tests containing 1 assertions.
+1 failures, 0 errors.
+nil
+{{project-ns}}.test.core=>
+```
