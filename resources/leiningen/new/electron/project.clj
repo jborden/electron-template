@@ -6,11 +6,9 @@
 
   :source-paths ["src/cljs"]
 
-  :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "1.7.228"]
-                 [cljsjs/react "0.13.3-1"]
-                 [cljsjs/nodejs-externs "1.0.4-1"]
-                 [reagent "0.5.1"]]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojurescript "1.9.494"]
+                 [reagent "0.6.0"]]
 
   :plugins [[lein-cljsbuild "1.1.3"]]
 
@@ -36,12 +34,12 @@
                    :source-paths ["env/dev/cljs"]
 
                    :dependencies [[com.cemerick/piggieback "0.2.1"]
-                                  [figwheel-sidecar "0.5.4"]]
+                                  [figwheel-sidecar "0.5.9"]]
 
-                   :plugins [[lein-ancient "0.6.8"]
-                             [lein-kibit "0.1.2"]
-                             [lein-cljfmt "0.4.1"]
-                             [lein-figwheel "0.5.4"]]}
+                   :plugins [[lein-ancient "0.6.10"]
+                             [lein-kibit "0.1.3"]
+                             [lein-cljfmt "0.5.6"]
+                             [lein-figwheel "0.5.9"]]}
 
              :production {:cljsbuild {:builds {:app {:compiler {:optimizations :advanced
                                                                 :main          "{{project-ns}}.prod"
